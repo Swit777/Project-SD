@@ -1,0 +1,15 @@
+numpy==2.4.3
+pandas==2.3.3
+scikit-learn==1.8.0
+matplotlib==3.10.8
+scipy==1.17.1
+streamlit==1.55.0
+duckdb==1.5.6
+openpyxl==3.1.5
+plotly==6.6.0
+joblib==1.5.3
+beautifulsoup4==4.14.3
+requests==2.32.5
+lime==0.2.0.1
+threadpoolctl==3.6.0
+

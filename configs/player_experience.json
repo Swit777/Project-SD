@@ -1,0 +1,19 @@
+{
+  "seed": 42,
+  "sampling": {
+    "max_players": 1200,
+    "min_responses": 3,
+    "max_responses_per_player": 30
+  },
+  "features": {
+    "windows_minutes": [1, 5, 15]
+  },
+  "evaluation": {
+    "test_fraction": 0.2,
+    "validation_fraction": 0.2,
+    "cv_folds": 3,
+    "bootstrap_repeats": 2000,
+    "trees": 140,
+    "min_samples_leaf": 12
+  }
+}

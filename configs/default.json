@@ -1,0 +1,18 @@
+{
+  "generation": {
+    "seed_start": 1,
+    "n_seeds": 90,
+    "sizes": [8, 10, 12],
+    "obstacle_densities": [0.08, 0.16, 0.24, 0.32, 0.40, 0.48],
+    "agents": ["random", "greedy", "astar", "q_learning"],
+    "random_episodes": 8,
+    "q_learning_episodes": 180,
+    "q_learning_eval_episodes": 5,
+    "max_steps_factor": 3.8
+  },
+  "training": {
+    "test_size": 0.25,
+    "random_state": 42,
+    "cv_folds": 3
+  }
+}

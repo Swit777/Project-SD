@@ -1,0 +1,17 @@
+{
+  "seed": 42,
+  "sample_games": 8000,
+  "snapshot_date": "2026-06-20",
+  "minimum_age_days": 180,
+  "scrape_games": 36,
+  "request_interval_seconds": 2.0,
+  "review_sample_size": 30,
+  "evaluation": {
+    "test_fraction": 0.2,
+    "validation_fraction": 0.15,
+    "calibration_fraction": 0.15,
+    "iterations": 120,
+    "bootstrap_repeats": 1500,
+    "min_samples_leaf": 25
+  }
+}
