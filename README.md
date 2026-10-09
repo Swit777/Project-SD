@@ -151,13 +151,13 @@ Raw, кеш, тексты подготовленного корпуса, заг�
 таблицами результатов, рисунками, обсуждением ограничений и списком источников.
 Числа получены из сохранённых результатов, а не из иллюстративных или выдуманных экспериментов.
 
-- [Статья в Word](Статья_прогнозирование_игровых_концепций.docx): версия от 09.10.2026, **10 страниц вместе с титульной и библиографией**, пять графиков и две таблицы.
-- [PDF актуальной статьи](reports/game_concept/article_by_example/article_ru.pdf).
-- [Markdown актуального текста](reports/game_concept/article_by_example/article_body_ru.md).
-- [Рисунки и дополнительные снимки интерфейса](reports/game_concept/article_by_example/figures/), [происхождение материалов](reports/game_concept/article_by_example/manifest.json).
-- [Проверка вёрстки и числа страниц](reports/game_concept/article_by_example/verification_short_2026_10_09/checks.json).
+- [Статья в Word](SD_Britcov_Denis_SD-251M_Project.docx): актуальная редакция с данными автора, пятью рисунками и двумя таблицами.
+- [PDF предыдущей редакции](reports/game_concept/article_by_example/article_ru.pdf).
+- [Markdown предыдущей редакции](reports/game_concept/article_by_example/article_body_ru.md).
+- [Иллюстрации статьи](reports/game_concept/article_by_example/figures/), [данные сборки предыдущей редакции](reports/game_concept/article_by_example/manifest.json).
+- [Проверка вёрстки предыдущей редакции](reports/game_concept/article_by_example/verification_short_2026_10_09/checks.json).
 
-Повторная сборка не меняет данные и не переобучает модели. Экспорт требует Microsoft Word;
+Повторная сборка исходной редакции не меняет данные и не переобучает модели. Экспорт требует Microsoft Word;
 проверка завершится ошибкой, если документ превысит 10 страниц:
 
 ```powershell
@@ -167,8 +167,8 @@ python scripts/build_article_by_example.py
 python scripts/verify_article_by_example.py
 ```
 
-Статья экспортирована в PDF через Microsoft Word. Проверка подтвердила объём 10 страниц,
+Предыдущая редакция статьи экспортирована в PDF через Microsoft Word. Проверка подтвердила объём 10 страниц,
 пять рисунков и две таблицы. Предыдущие DOCX-версии сохранены в `reports/game_concept/article_by_example/versions/`.
 Файлы в `reports/game_concept/article/` относятся к прежней версии от 08.10.2026, а не к актуальной статье.
-Сохранены результаты сравнения режимов поиска аналогов и снимки интерфейса в
+Сохранены результаты сравнения режимов поиска аналогов в
 `reports/game_concept/analogue_upgrade/`.
