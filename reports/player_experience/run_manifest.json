@@ -1,0 +1,198 @@
+{
+  "best_model": "median_baseline",
+  "selection_criterion": "validation player-balanced MAE",
+  "splits": {
+    "train": {
+      "observations": 5347,
+      "players": 645
+    },
+    "validation": {
+      "observations": 1541,
+      "players": 216
+    },
+    "test": {
+      "observations": 1702,
+      "players": 216
+    }
+  },
+  "test_metrics": {
+    "mean_baseline": {
+      "mae": 11.881552189134936,
+      "player_mae": 12.65218013942618,
+      "rmse": 15.139762592115108,
+      "r2": -8.789479091175778e-05
+    },
+    "median_baseline": {
+      "mae": 11.768037602820211,
+      "player_mae": 12.561178051283123,
+      "rmse": 15.616939942286614,
+      "r2": -0.06412322214723387
+    },
+    "ridge_aggregate": {
+      "mae": 11.972161223251266,
+      "player_mae": 12.680385872786237,
+      "rmse": 15.198055204710702,
+      "r2": -0.007803995715822909
+    },
+    "random_forest_aggregate": {
+      "mae": 12.065937995113298,
+      "player_mae": 12.775930925399619,
+      "rmse": 15.295140833490795,
+      "r2": -0.020720884909273485
+    },
+    "random_forest_dynamic": {
+      "mae": 12.087115041738286,
+      "player_mae": 12.913423603923231,
+      "rmse": 15.307572887970503,
+      "r2": -0.022380865020980023
+    },
+    "bayesian_ridge_dynamic": {
+      "mae": 11.995614553495098,
+      "player_mae": 12.814146322420159,
+      "rmse": 15.22939405100192,
+      "r2": -0.01196452508122059
+    }
+  },
+  "validation_metrics": {
+    "mean_baseline": {
+      "mae": 12.587265767001652,
+      "player_mae": 12.990365780077518,
+      "rmse": 15.33723002552719,
+      "r2": -0.00020910018580111434
+    },
+    "median_baseline": {
+      "mae": 12.418040233614533,
+      "player_mae": 12.83051594926799,
+      "rmse": 15.827078218416133,
+      "r2": -0.06511974760992567
+    },
+    "ridge_aggregate": {
+      "mae": 12.758451882537711,
+      "player_mae": 13.27569748174312,
+      "rmse": 15.523846293409644,
+      "r2": -0.02469733650442918
+    },
+    "random_forest_aggregate": {
+      "mae": 12.866994099179964,
+      "player_mae": 13.150769757756532,
+      "rmse": 15.59155144616791,
+      "r2": -0.033654985042104624
+    },
+    "random_forest_dynamic": {
+      "mae": 12.784200857056007,
+      "player_mae": 13.139706576611035,
+      "rmse": 15.532324914738806,
+      "r2": -0.025816955068865166
+    },
+    "bayesian_ridge_dynamic": {
+      "mae": 12.705407614564537,
+      "player_mae": 13.160233282195353,
+      "rmse": 15.502016394267859,
+      "r2": -0.021817468819502972
+    }
+  },
+  "hypothesis": {
+    "comparison": "random_forest_aggregate vs random_forest_dynamic",
+    "unit": "player",
+    "delta_definition": "aggregate player-MAE minus dynamic player-MAE",
+    "delta_mae": -0.13749267852361363,
+    "ci_low": -0.294863673881689,
+    "ci_high": 0.029984130182373954,
+    "confidence": 0.95,
+    "bootstrap_repeats": 2000,
+    "players": 216,
+    "verdict": "inconclusive"
+  },
+  "interval": {
+    "method": "validation absolute-residual percentile",
+    "nominal_fraction": 0.9,
+    "radius": 24.699999999999996,
+    "test_coverage": 0.9018801410105758,
+    "limitation": "Descriptive interval; repeated observations are not independent. No coverage guarantee."
+  },
+  "target_scale": [
+    0,
+    100
+  ],
+  "windows_minutes": [
+    1,
+    5,
+    15
+  ],
+  "config": {
+    "seed": 42,
+    "sampling": {
+      "max_players": 1200,
+      "min_responses": 3,
+      "max_responses_per_player": 30
+    },
+    "features": {
+      "windows_minutes": [
+        1,
+        5,
+        15
+      ]
+    },
+    "evaluation": {
+      "test_fraction": 0.2,
+      "validation_fraction": 0.2,
+      "cv_folds": 3,
+      "bootstrap_repeats": 2000,
+      "trees": 140,
+      "min_samples_leaf": 12
+    }
+  },
+  "dataset": {
+    "origin": "PowerWash Simulator / pinned OSF release",
+    "license": "CC0-1.0"
+  },
+  "preparation_audit": {
+    "input_responses": 18704,
+    "missing_episode": 10106,
+    "episode_context_mismatch": 8,
+    "prepared_responses": 8590,
+    "players": 1077,
+    "equal_timestamp_events_excluded": true,
+    "cross_episode_history_excluded": true,
+    "eligible_players": 6770,
+    "source_prompts": 702209,
+    "target": "Enjoyment / 10, scale 0-100",
+    "source_sha256": "1b4d1f7daf61548d9f40b9b0b6ac9fe3e44ed0dff5d0d496fc002d08ac3aec41",
+    "windows_minutes": [
+      1,
+      5,
+      15
+    ],
+    "data_sha256": "0537881718c274456d0c49496ee7b79fe176f703664e528281266b0d6bf363c6",
+    "sampling_seed": 42
+  },
+  "reproducibility": {
+    "source_doi": "https://doi.org/10.17605/OSF.IO/WPEH6",
+    "article": "https://www.nature.com/articles/s41597-023-02530-3",
+    "versions": {
+      "numpy": "2.4.3",
+      "pandas": "2.3.3",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.1",
+      "duckdb": "1.5.6",
+      "streamlit": "1.55.0",
+      "joblib": "1.5.3",
+      "matplotlib": "3.10.8",
+      "plotly": "6.6.0",
+      "openpyxl": "3.1.5"
+    },
+    "input_sha256": "0537881718c274456d0c49496ee7b79fe176f703664e528281266b0d6bf363c6",
+    "code_sha256": {
+      "__init__.py": "73ef7baa3c752a2ff59b234fd3cdd2357027d9eb809dddc6052db22feac0a070",
+      "cli.py": "ea80a6b991c608a7d7e0628958c09eda81018efd62908d26003d90084f4fb433",
+      "config.py": "5723b0629c2de6a8e2e474b60e85875049633d4ec051d23bbb30e78e5fa70557",
+      "evaluation.py": "f65fa64c5cf75dd523ab77a1613129d534e251f830658b94b3614eb14a9234a3",
+      "features.py": "1a07b2e13828e8248f2b0f64ffda02ff1a0d70a8c0d4f857b286790006362b9f",
+      "models.py": "cb24c48ac0bbe8dd29ed297bcb21187420ccd25694fdf2b2706f6e7148c36fff",
+      "prepare.py": "de9beefaf161fc5599d3b15418aabc253dc509d711881481ebba7313ed197ba2",
+      "reports.py": "e6ae709c0b460f957440486f5a2c5a5bf3679e2386f38bda75636629629a447d",
+      "source.py": "ca0db8c79eede208959cc3531e13fc4bf364620f4bfd14c2d5a4afb1e8713c68"
+    },
+    "seed": 42
+  }
+}

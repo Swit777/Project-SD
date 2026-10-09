@@ -1,0 +1,352 @@
+{
+  "cases": {
+    "rpg_coop_crafting": {
+      "old": {
+        "games": 12,
+        "median_reviews": 13.0,
+        "below_30_reviews": 10,
+        "mean_selected_coverage": 0.4583333333333333,
+        "unconfirmed_multiplayer": 10
+      },
+      "new": {
+        "games": 12,
+        "median_reviews": 675.0,
+        "below_30_reviews": 0,
+        "mean_selected_coverage": 1.0,
+        "unconfirmed_multiplayer": 0
+      },
+      "diagnostics": {
+        "reference_games": 94016,
+        "matched_before_reviews": 337,
+        "excluded_low_or_unknown_reviews": 96,
+        "eligible_games": 241,
+        "min_reviews": 30,
+        "min_coverage": 1,
+        "retrieval_version": "3.0",
+        "tag_query_available": false
+      },
+      "balanced": {
+        "games": 12,
+        "median_reviews": 798.5,
+        "below_30_reviews": 0,
+        "mean_selected_coverage": 1.0,
+        "unconfirmed_multiplayer": 0
+      },
+      "balanced_diagnostics": {
+        "reference_games": 94016,
+        "matched_before_reviews": 1551,
+        "excluded_low_or_unknown_reviews": 647,
+        "eligible_games": 904,
+        "min_reviews": 30,
+        "min_coverage": 0.5,
+        "retrieval_version": "3.0",
+        "tag_query_available": false
+      },
+      "broad": {
+        "games": 12,
+        "median_reviews": 696626.0,
+        "below_30_reviews": 0,
+        "mean_selected_coverage": 0.875,
+        "unconfirmed_multiplayer": 0
+      },
+      "broad_diagnostics": {
+        "reference_games": 94016,
+        "matched_before_reviews": 3145,
+        "excluded_low_or_unknown_reviews": 1868,
+        "eligible_games": 1277,
+        "min_reviews": 100,
+        "min_coverage": 0.25,
+        "retrieval_version": "3.0",
+        "tag_query_available": false
+      }
+    },
+    "strategy_cards": {
+      "old": {
+        "games": 12,
+        "median_reviews": 28.5,
+        "below_30_reviews": 6,
+        "mean_selected_coverage": 0.7083333333333334,
+        "unconfirmed_multiplayer": 0
+      },
+      "new": {
+        "games": 12,
+        "median_reviews": 243.5,
+        "below_30_reviews": 0,
+        "mean_selected_coverage": 1.0,
+        "unconfirmed_multiplayer": 0
+      },
+      "diagnostics": {
+        "reference_games": 94016,
+        "matched_before_reviews": 377,
+        "excluded_low_or_unknown_reviews": 131,
+        "eligible_games": 246,
+        "min_reviews": 30,
+        "min_coverage": 1,
+        "retrieval_version": "3.0",
+        "tag_query_available": false
+      },
+      "balanced": {
+        "games": 12,
+        "median_reviews": 243.5,
+        "below_30_reviews": 0,
+        "mean_selected_coverage": 1.0,
+        "unconfirmed_multiplayer": 0
+      },
+      "balanced_diagnostics": {
+        "reference_games": 94016,
+        "matched_before_reviews": 3707,
+        "excluded_low_or_unknown_reviews": 1913,
+        "eligible_games": 1794,
+        "min_reviews": 30,
+        "min_coverage": 0.5,
+        "retrieval_version": "3.0",
+        "tag_query_available": false
+      },
+      "broad": {
+        "games": 12,
+        "median_reviews": 116795.5,
+        "below_30_reviews": 0,
+        "mean_selected_coverage": 0.5,
+        "unconfirmed_multiplayer": 0
+      },
+      "broad_diagnostics": {
+        "reference_games": 94016,
+        "matched_before_reviews": 3707,
+        "excluded_low_or_unknown_reviews": 2560,
+        "eligible_games": 1147,
+        "min_reviews": 100,
+        "min_coverage": 0.25,
+        "retrieval_version": "3.0",
+        "tag_query_available": false
+      }
+    },
+    "adventure_puzzles": {
+      "old": {
+        "games": 12,
+        "median_reviews": 52.5,
+        "below_30_reviews": 4,
+        "mean_selected_coverage": 0.9583333333333334,
+        "unconfirmed_multiplayer": 0
+      },
+      "new": {
+        "games": 12,
+        "median_reviews": 137.0,
+        "below_30_reviews": 0,
+        "mean_selected_coverage": 1.0,
+        "unconfirmed_multiplayer": 0
+      },
+      "diagnostics": {
+        "reference_games": 94016,
+        "matched_before_reviews": 1802,
+        "excluded_low_or_unknown_reviews": 662,
+        "eligible_games": 1140,
+        "min_reviews": 30,
+        "min_coverage": 1,
+        "retrieval_version": "3.0",
+        "tag_query_available": false
+      },
+      "balanced": {
+        "games": 12,
+        "median_reviews": 137.0,
+        "below_30_reviews": 0,
+        "mean_selected_coverage": 1.0,
+        "unconfirmed_multiplayer": 0
+      },
+      "balanced_diagnostics": {
+        "reference_games": 94016,
+        "matched_before_reviews": 14553,
+        "excluded_low_or_unknown_reviews": 7684,
+        "eligible_games": 6869,
+        "min_reviews": 30,
+        "min_coverage": 0.5,
+        "retrieval_version": "3.0",
+        "tag_query_available": false
+      },
+      "broad": {
+        "games": 12,
+        "median_reviews": 424728.0,
+        "below_30_reviews": 0,
+        "mean_selected_coverage": 0.5416666666666666,
+        "unconfirmed_multiplayer": 0
+      },
+      "broad_diagnostics": {
+        "reference_games": 94016,
+        "matched_before_reviews": 14553,
+        "excluded_low_or_unknown_reviews": 10268,
+        "eligible_games": 4285,
+        "min_reviews": 100,
+        "min_coverage": 0.25,
+        "retrieval_version": "3.0",
+        "tag_query_available": false
+      }
+    },
+    "action_platformer": {
+      "old": {
+        "games": 12,
+        "median_reviews": 39.0,
+        "below_30_reviews": 5,
+        "mean_selected_coverage": 0.6666666666666666,
+        "unconfirmed_multiplayer": 0
+      },
+      "new": {
+        "games": 12,
+        "median_reviews": 124.0,
+        "below_30_reviews": 0,
+        "mean_selected_coverage": 1.0,
+        "unconfirmed_multiplayer": 0
+      },
+      "diagnostics": {
+        "reference_games": 94016,
+        "matched_before_reviews": 317,
+        "excluded_low_or_unknown_reviews": 124,
+        "eligible_games": 193,
+        "min_reviews": 30,
+        "min_coverage": 1,
+        "retrieval_version": "3.0",
+        "tag_query_available": false
+      },
+      "balanced": {
+        "games": 12,
+        "median_reviews": 85.5,
+        "below_30_reviews": 0,
+        "mean_selected_coverage": 1.0,
+        "unconfirmed_multiplayer": 0
+      },
+      "balanced_diagnostics": {
+        "reference_games": 94016,
+        "matched_before_reviews": 9247,
+        "excluded_low_or_unknown_reviews": 5754,
+        "eligible_games": 3493,
+        "min_reviews": 30,
+        "min_coverage": 0.5,
+        "retrieval_version": "3.0",
+        "tag_query_available": false
+      },
+      "broad": {
+        "games": 12,
+        "median_reviews": 233156.5,
+        "below_30_reviews": 0,
+        "mean_selected_coverage": 0.5833333333333334,
+        "unconfirmed_multiplayer": 0
+      },
+      "broad_diagnostics": {
+        "reference_games": 94016,
+        "matched_before_reviews": 9247,
+        "excluded_low_or_unknown_reviews": 7199,
+        "eligible_games": 2048,
+        "min_reviews": 100,
+        "min_coverage": 0.25,
+        "retrieval_version": "3.0",
+        "tag_query_available": false
+      }
+    },
+    "simulation_automation": {
+      "old": {
+        "games": 12,
+        "median_reviews": 0.0,
+        "below_30_reviews": 7,
+        "mean_selected_coverage": 0.375,
+        "unconfirmed_multiplayer": 0
+      },
+      "new": {
+        "games": 12,
+        "median_reviews": 515.5,
+        "below_30_reviews": 0,
+        "mean_selected_coverage": 1.0,
+        "unconfirmed_multiplayer": 0
+      },
+      "diagnostics": {
+        "reference_games": 94016,
+        "matched_before_reviews": 23,
+        "excluded_low_or_unknown_reviews": 4,
+        "eligible_games": 19,
+        "min_reviews": 30,
+        "min_coverage": 1,
+        "retrieval_version": "3.0",
+        "tag_query_available": false
+      },
+      "balanced": {
+        "games": 12,
+        "median_reviews": 301.5,
+        "below_30_reviews": 0,
+        "mean_selected_coverage": 0.9166666666666666,
+        "unconfirmed_multiplayer": 0
+      },
+      "balanced_diagnostics": {
+        "reference_games": 94016,
+        "matched_before_reviews": 785,
+        "excluded_low_or_unknown_reviews": 333,
+        "eligible_games": 452,
+        "min_reviews": 30,
+        "min_coverage": 0.5,
+        "retrieval_version": "3.0",
+        "tag_query_available": false
+      },
+      "broad": {
+        "games": 12,
+        "median_reviews": 59837.0,
+        "below_30_reviews": 0,
+        "mean_selected_coverage": 0.5416666666666666,
+        "unconfirmed_multiplayer": 0
+      },
+      "broad_diagnostics": {
+        "reference_games": 94016,
+        "matched_before_reviews": 785,
+        "excluded_low_or_unknown_reviews": 482,
+        "eligible_games": 303,
+        "min_reviews": 100,
+        "min_coverage": 0.25,
+        "retrieval_version": "3.0",
+        "tag_query_available": false
+      }
+    }
+  },
+  "anchor_diagnostics": {
+    "reference_games": 94016,
+    "matched_before_reviews": 1550,
+    "excluded_low_or_unknown_reviews": 647,
+    "eligible_games": 903,
+    "min_reviews": 30,
+    "min_coverage": 0.5,
+    "retrieval_version": "3.0",
+    "tag_query_available": true
+  },
+  "research_artifacts_unchanged": {
+    "reports/game_concept/run_manifest.json": true,
+    "reports/game_concept/models/concept_model.joblib": true,
+    "reports/game_concept/market_metrics.csv": true,
+    "reports/game_concept/playtime_metrics.csv": true,
+    "reports/game_concept/test_predictions.csv": true,
+    "reports/game_concept/splits.csv": true,
+    "reports/game_concept/feature_importance.csv": true,
+    "reports/game_concept/temporal_backtest.csv": true,
+    "reports/game_concept/calibration_metrics.csv": true,
+    "reports/game_concept/reliability_bins.csv": true,
+    "reports/game_concept/annotations/7bf9b2af7cfdfba8/tasks.csv": true,
+    "training_data": true
+  },
+  "depth": 12,
+  "catalog_games": 94016,
+  "article_update_date": "2026-10-09",
+  "retrieval_code_sha256": {
+    "analogues.py": "17532d0b1a7481b443a8f19f478f0bc5c8436a9de587db0d94930bdbbc64f51e",
+    "analogue_catalog.py": "56651a7524587a4d78973e053bed71a8bb59af68fa85c5549e4fe823d9c46bae",
+    "analogue_view.py": "2a9351c4bff97d7081e39518ef96d0b6ba18434682082fe985afc56fb453a6a9",
+    "annotation.py": "3baea201acf79f187b1645b29e34f434450f7ff903ad453407ce1f1ce9b87c35",
+    "charts.py": "a857edd1d2522afcb8552861f0ecf9b99d4a0284b3f5a4ef3194c44c39a40f2b",
+    "cli.py": "128829976bc4244ef8997f21a28f2140e3841a5c81cfb0e9e2a6990d1c84f67b",
+    "config.py": "49cbab75ff232ec8a07154de563d07a74c917bca39f05e42568d20a82e44dc40",
+    "dataset.py": "61cc56f7a6dbce97f87c75e5c541345ff93efb8b52da5bb52bb13ae04e88b57a",
+    "evaluation.py": "f33d8b96371fdb6fd71b4fc8dbe6125818c7a5d476c3a0159f504d6c8e69e03a",
+    "live_reviews.py": "0f0d57e58ad4e39ece901222be068b2fc609383d53bc4f6a90e4136de59dad0d",
+    "mechanics.py": "08a411814e5d2831ea7f2188efd897cb8410464da880621fd809c7420def3969",
+    "models.py": "57c93b2d5d12176a68a9003c883d3a2828f49902d1fb9f126881577b5bad09af",
+    "predict.py": "54a7479ce97a30dc1956612fc5361d4b9cc854f3f4dd41fecd5bfc4d391b90c3",
+    "reports.py": "bfb9aa9d6201691c4dedd4b319acbaf338f9fb98ba837dd7ee0bad8ca7f5f7d4",
+    "scraper.py": "c8a4a0472cb307b5ce54d4f562bea075f56398595a6a84a76aa867e0d71c15fb",
+    "sources.py": "cec42616a971217aa9d721ddcb24dfaf5247ec8dc9001044a5cd3a0bd0ca74a6",
+    "tag_similarity.py": "90f8453cadc464cb6691976fe89cfc7a55144d1d58c511626a522a94fee73362",
+    "__init__.py": "8ff1ae4cc9ae8e5d1fd0712d9d868fe991afdea97adc89cd721719e272301af7"
+  },
+  "limitations": "Constraint compliance, not independently judged retrieval precision; filtered market analogues are not representative success frequencies"
+}

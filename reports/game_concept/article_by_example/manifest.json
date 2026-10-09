@@ -1,0 +1,44 @@
+{
+  "article_date": "2026-10-09",
+  "formatting_reference": "Статья_цены_подержанных_автомобилей_.docx",
+  "reference_sha256": "6a0e6d3944504a3f31ed57841bb848bbbea3b520dd24032bcb474b305ae5570c",
+  "output_docx": "Статья_прогнозирование_игровых_концепций.docx",
+  "docx_sha256": "98f94059a6f9c5a2ab64b3b2fd5d3b8b56246493d3e7c8c7e15b251ed0bd0723",
+  "article_body_sha256": "73dc525f55d76c255e13f815247748de02386368ced74337cf597098dba10efe",
+  "experiment_input_sha256": "fd37df7f0e2919ca0f020b60044fa6f9c1c62398dbad9196b121cbd5eca23ab8",
+  "metadata": {
+    "author": "",
+    "email": "",
+    "group": "[grupa]",
+    "affiliation": "",
+    "supervisor": ""
+  },
+  "tables": 2,
+  "figures": 5,
+  "sources": 15,
+  "additional_calculation": "Per-class recall and separate retrieval benchmarks; no refitting of the market model",
+  "retrieval_code_changes": [
+    "cli.py",
+    "predict.py"
+  ],
+  "retrieval_comparison_sha256": "b225d388aa59589c408441c14bcdc66b5a4db34894b8b388632e4c53fb83f35a",
+  "test_log_sha256": "e10399a08a18305267c138d79d03750046deeaf1aadc58e40eb9272397a8314a",
+  "figures_sha256": {
+    "01_dataset.png": "6f6153d37e2a90d2046a13132976975938fc3e5a34510661134fe51a783fbc62",
+    "02_pipeline.png": "218761d4f7111737f13eb71e71847f435f4fcfa38d0e19bc0dc3ae80a5f11d72",
+    "03_models.png": "0ff3060f0f134a183d0c922de2e30b324ae5f23a6353d7451a7eec70ddcecd30",
+    "04_hypothesis.png": "672dcc3ee6cbec08c88a0492e499e82d637576214829e1a2ab3a5af49c3f78b1",
+    "05_calibration.png": "7228b856d4221796222a3fcebd6038e862cfef4a43bb4a6b95f6a6e8605aee7b",
+    "06_importance.png": "67b957bb04170db937430a6c49054c4c449061d6b0806639195c684f576229e1",
+    "07_class_errors.png": "efa23da2be082b8b81d52b91268478e3641ad7ecf601276814f3f770c810b954",
+    "08_application.png": "2f84e5334df9a193b11d4358aa955886a43531042a37821e70561f4d1a7f3c51",
+    "09_retrieval_modes.png": "bcebe03b6a569d89eb0d96b9f5d2e34f6a26398d417eeba6e2c140a1b9dcfa58",
+    "10_tag_anchor.png": "e6503899fdf9ffe2d40cae65ab2b8ddcaed7a2e204a18e11954feb324e6770e2",
+    "11_analogue_interface.png": "9bcfaf3ccf3bd03cf5f079f0cab35a6ce8f4a4f546e7d55f36fe11c6c59ec610"
+  },
+  "source_code_sha256": {
+    "build_article_by_example.py": "bb8a36751ce254133981ab8fd85379fe7adc45a2bc3b90db51d11c4ea57f1c6c",
+    "game_concept_article_short_template_ru.md": "686170656124d9a0c9daa40bd58c4571bd18866f09d6e7bf0c6d5e5c8b671d3b"
+  },
+  "reviewed_tests": 100
+}

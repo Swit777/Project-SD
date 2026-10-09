@@ -1,0 +1,103 @@
+{
+  "status": "passed",
+  "pages": 15,
+  "figures": 8,
+  "tables": 7,
+  "references": 13,
+  "cyrillic_text": "verified",
+  "hashes": "verified",
+  "page_bounds": "verified",
+  "text_overlaps": "none detected",
+  "rendered_pages": [
+    {
+      "page": 1,
+      "characters": 3106,
+      "images": 0,
+      "ink_fraction": 0.10977153410387831
+    },
+    {
+      "page": 2,
+      "characters": 3106,
+      "images": 0,
+      "ink_fraction": 0.10324472757707179
+    },
+    {
+      "page": 3,
+      "characters": 2875,
+      "images": 0,
+      "ink_fraction": 0.09669855367184745
+    },
+    {
+      "page": 4,
+      "characters": 2554,
+      "images": 1,
+      "ink_fraction": 0.11201953338451855
+    },
+    {
+      "page": 5,
+      "characters": 1634,
+      "images": 1,
+      "ink_fraction": 0.07677228804825244
+    },
+    {
+      "page": 6,
+      "characters": 3146,
+      "images": 0,
+      "ink_fraction": 0.10401112240874852
+    },
+    {
+      "page": 7,
+      "characters": 2161,
+      "images": 1,
+      "ink_fraction": 0.1094284548290483
+    },
+    {
+      "page": 8,
+      "characters": 1489,
+      "images": 2,
+      "ink_fraction": 0.061444391414717824
+    },
+    {
+      "page": 9,
+      "characters": 1912,
+      "images": 0,
+      "ink_fraction": 0.06887454780629855
+    },
+    {
+      "page": 10,
+      "characters": 1812,
+      "images": 1,
+      "ink_fraction": 0.07860803884542757
+    },
+    {
+      "page": 11,
+      "characters": 2241,
+      "images": 1,
+      "ink_fraction": 0.07892483382097626
+    },
+    {
+      "page": 12,
+      "characters": 1684,
+      "images": 1,
+      "ink_fraction": 0.37248033865244545
+    },
+    {
+      "page": 13,
+      "characters": 3401,
+      "images": 0,
+      "ink_fraction": 0.11243178186798365
+    },
+    {
+      "page": 14,
+      "characters": 3132,
+      "images": 0,
+      "ink_fraction": 0.09715092029632089
+    },
+    {
+      "page": 15,
+      "characters": 1084,
+      "images": 0,
+      "ink_fraction": 0.032841540259937886
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "status": "passed",
+  "pages": 10,
+  "max_pages": 10,
+  "includes_cover_and_bibliography": true,
+  "figures": 5,
+  "tables": 2,
+  "references": 15,
+  "reviewed_tests": 100,
+  "hashes": "verified",
+  "cyrillic_text": "verified",
+  "page_bounds": "verified",
+  "text_overlaps": "none detected",
+  "docx_sha256": "98f94059a6f9c5a2ab64b3b2fd5d3b8b56246493d3e7c8c7e15b251ed0bd0723",
+  "pdf_sha256": "c6c82e7e269f07b251597eeef9602ad143dda90610b44ca2b723965731b67676",
+  "rendered_pages": [
+    {
+      "page": 1,
+      "characters": 680,
+      "ink_fraction": 0.04558304720776846
+    },
+    {
+      "page": 2,
+      "characters": 2160,
+      "ink_fraction": 0.08663056175002655
+    },
+    {
+      "page": 3,
+      "characters": 2276,
+      "ink_fraction": 0.08923931896216063
+    },
+    {
+      "page": 4,
+      "characters": 2229,
+      "ink_fraction": 0.0860063950538624
+    },
+    {
+      "page": 5,
+      "characters": 1326,
+      "ink_fraction": 0.09738534329168289
+    },
+    {
+      "page": 6,
+      "characters": 877,
+      "ink_fraction": 0.121989782072611
+    },
+    {
+      "page": 7,
+      "characters": 991,
+      "ink_fraction": 0.1179922834589926
+    },
+    {
+      "page": 8,
+      "characters": 1559,
+      "ink_fraction": 0.14243153634679598
+    },
+    {
+      "page": 9,
+      "characters": 2234,
+      "ink_fraction": 0.08595801918516159
+    },
+    {
+      "page": 10,
+      "characters": 615,
+      "ink_fraction": 0.028612556487675952
+    }
+  ]
+}

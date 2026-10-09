@@ -1,0 +1,272 @@
+{
+  "forecast_1440": {
+    "documentWidth": 1440,
+    "errors": 0,
+    "headings": [
+      {
+        "scroll": 1220,
+        "text": "Прогноз игровой концепции",
+        "width": 1220
+      },
+      {
+        "scroll": 405,
+        "text": "Параметры продукта",
+        "width": 405
+      },
+      {
+        "scroll": 751,
+        "text": "Оценочный масштаб аудитории",
+        "width": 751
+      },
+      {
+        "scroll": 1220,
+        "text": "Сопоставимые игры",
+        "width": 1220
+      }
+    ],
+    "plots": 4,
+    "width": 1440
+  },
+  "analogues_1440": {
+    "documentWidth": 1440,
+    "errors": 0,
+    "headings": [
+      {
+        "scroll": 1220,
+        "text": "Прогноз игровой концепции",
+        "width": 1220
+      },
+      {
+        "scroll": 405,
+        "text": "Параметры продукта",
+        "width": 405
+      },
+      {
+        "scroll": 751,
+        "text": "Оценочный масштаб аудитории",
+        "width": 751
+      },
+      {
+        "scroll": 1220,
+        "text": "Сопоставимые игры",
+        "width": 1220
+      }
+    ],
+    "plots": 4,
+    "width": 1440
+  },
+  "analogue_charts_1440": {
+    "documentWidth": 1440,
+    "errors": 0,
+    "headings": [
+      {
+        "scroll": 1220,
+        "text": "Прогноз игровой концепции",
+        "width": 1220
+      },
+      {
+        "scroll": 405,
+        "text": "Параметры продукта",
+        "width": 405
+      },
+      {
+        "scroll": 751,
+        "text": "Оценочный масштаб аудитории",
+        "width": 751
+      },
+      {
+        "scroll": 1220,
+        "text": "Сопоставимые игры",
+        "width": 1220
+      }
+    ],
+    "plots": 4,
+    "width": 1440
+  },
+  "forecast_1920": {
+    "documentWidth": 1920,
+    "errors": 0,
+    "headings": [
+      {
+        "scroll": 1220,
+        "text": "Прогноз игровой концепции",
+        "width": 1220
+      },
+      {
+        "scroll": 405,
+        "text": "Параметры продукта",
+        "width": 405
+      },
+      {
+        "scroll": 751,
+        "text": "Оценочный масштаб аудитории",
+        "width": 751
+      },
+      {
+        "scroll": 1220,
+        "text": "Сопоставимые игры",
+        "width": 1220
+      }
+    ],
+    "plots": 4,
+    "width": 1920
+  },
+  "analogues_1920": {
+    "documentWidth": 1920,
+    "errors": 0,
+    "headings": [
+      {
+        "scroll": 1220,
+        "text": "Прогноз игровой концепции",
+        "width": 1220
+      },
+      {
+        "scroll": 405,
+        "text": "Параметры продукта",
+        "width": 405
+      },
+      {
+        "scroll": 751,
+        "text": "Оценочный масштаб аудитории",
+        "width": 751
+      },
+      {
+        "scroll": 1220,
+        "text": "Сопоставимые игры",
+        "width": 1220
+      }
+    ],
+    "plots": 4,
+    "width": 1920
+  },
+  "analogue_charts_1920": {
+    "documentWidth": 1920,
+    "errors": 0,
+    "headings": [
+      {
+        "scroll": 1220,
+        "text": "Прогноз игровой концепции",
+        "width": 1220
+      },
+      {
+        "scroll": 405,
+        "text": "Параметры продукта",
+        "width": 405
+      },
+      {
+        "scroll": 751,
+        "text": "Оценочный масштаб аудитории",
+        "width": 751
+      },
+      {
+        "scroll": 1220,
+        "text": "Сопоставимые игры",
+        "width": 1220
+      }
+    ],
+    "plots": 4,
+    "width": 1920
+  },
+  "game_detail": {
+    "documentWidth": 1920,
+    "errors": 0,
+    "headings": [
+      {
+        "scroll": 1220,
+        "text": "Прогноз игровой концепции",
+        "width": 1220
+      },
+      {
+        "scroll": 405,
+        "text": "Параметры продукта",
+        "width": 405
+      },
+      {
+        "scroll": 751,
+        "text": "Оценочный масштаб аудитории",
+        "width": 751
+      },
+      {
+        "scroll": 1220,
+        "text": "Сопоставимые игры",
+        "width": 1220
+      }
+    ],
+    "plots": 4,
+    "width": 1920
+  },
+  "anchor_1440": {
+    "documentWidth": 1440,
+    "errors": 0,
+    "headings": [
+      {
+        "scroll": 1220,
+        "text": "Прогноз игровой концепции",
+        "width": 1220
+      },
+      {
+        "scroll": 405,
+        "text": "Параметры продукта",
+        "width": 405
+      },
+      {
+        "scroll": 751,
+        "text": "Оценочный масштаб аудитории",
+        "width": 751
+      },
+      {
+        "scroll": 1220,
+        "text": "Сопоставимые игры",
+        "width": 1220
+      }
+    ],
+    "plots": 4,
+    "width": 1440
+  },
+  "data": {
+    "documentWidth": 1440,
+    "errors": 0,
+    "headings": [
+      {
+        "scroll": 1220,
+        "text": "Прогноз игровой концепции",
+        "width": 1220
+      },
+      {
+        "scroll": 1220,
+        "text": "Корпус игровых элементов",
+        "width": 1220
+      }
+    ],
+    "plots": 2,
+    "width": 1440
+  },
+  "model_errors": {
+    "documentWidth": 1440,
+    "errors": 0,
+    "headings": [
+      {
+        "scroll": 1220,
+        "text": "Прогноз игровой концепции",
+        "width": 1220
+      },
+      {
+        "scroll": 1220,
+        "text": "Проверка гипотезы о сочетаниях механик",
+        "width": 1220
+      },
+      {
+        "scroll": 1220,
+        "text": "Какие игры модель распознаёт хуже",
+        "width": 1220
+      },
+      {
+        "scroll": 1220,
+        "text": "Игровое время",
+        "width": 1220
+      }
+    ],
+    "plots": 4,
+    "width": 1440
+  }
+}

@@ -8,6 +8,7 @@ from pathlib import Path
 import sys
 
 import pandas as pd
+import numpy as np
 import plotly.express as px
 import streamlit as st
 
@@ -22,6 +23,9 @@ from game_concept.models import train_experiment
 from game_concept.predict import compare_components, concept_features, explain_lime, forecast, load_bundle
 from game_concept.reports import VERDICTS, write_reports
 from game_concept.scraper import scrape_games
+from game_concept.analogue_view import show_analogues
+from game_concept.analogues import RETRIEVAL_VERSION, review_stats
+from game_concept.charts import classification_errors, component_deltas
 
 DATA = ROOT / "data/processed/game_concept"
 REPORTS = ROOT / "reports/game_concept"
@@ -76,6 +80,17 @@ def show_experiment(directory: Path):
         color_discrete_map={"prior": "#74828b", "genre_only": "#86acc7", "logistic_additive": "#ceab60", "hgb_additive": "#5ed3b6", "hgb_interactions": "#bf728d"},
         labels={"group_log_loss": "Test log loss по разработчикам", "model": "Модель"})), width="stretch")
     st.dataframe(metrics, hide_index=True, width="stretch")
+    st.subheader("Какие игры модель распознаёт хуже")
+    errors, matrix = classification_errors(table(directory / "test_predictions.csv"), meta["selected_model"])
+    left, right = st.columns([1.4, 1])
+    left.plotly_chart(chart(errors, 370), width="stretch", key=f"errors_{directory.name}")
+    row_totals = matrix.sum(axis=1)
+    recall = np.divide(matrix.diagonal(), row_totals, out=np.zeros(4), where=row_totals != 0)
+    right.dataframe(pd.DataFrame({"Диапазон": BAND_LABELS, "Игр в test": row_totals, "Полнота, %": np.round(recall * 100, 1)}),
+                    hide_index=True, width="stretch")
+    selected_metrics = metrics.loc[metrics.model.eq(meta["selected_model"])].iloc[0]
+    right.metric("Balanced accuracy", f"{selected_metrics.balanced_accuracy:.1%}")
+    right.caption("Обычная accuracy скрывает перекос классов. Слабое распознавание редких крупных игр ограничивает практическую надёжность прогноза.")
     reliability_path = directory / "reliability_bins.csv"
     if reliability_path.exists():
         with st.expander("Проверка вероятностей · калибровка"):
@@ -98,7 +113,8 @@ def show_experiment(directory: Path):
     st.subheader("Игровое время")
     playtime = meta["playtime"]
     if playtime["status"] == "available":
-        st.dataframe(table(directory / "playtime_metrics.csv"), hide_index=True, width="stretch")
+        time_metrics = table(directory / "playtime_metrics.csv")
+        st.dataframe(time_metrics, hide_index=True, width="stretch")
         st.caption(f"Покрытие номинального 90% интервала на test: {playtime['empirical_test_coverage']:.1%}. "
                    "Только игры с доступной положительной оценкой часов; это не D7/D30-retention.")
     else:
@@ -109,7 +125,11 @@ def show_experiment(directory: Path):
                    "Настоящий pre-launch-прогноз и будущие годовые продажи этим тестом не подтверждены.")
         st.json(meta)
     with st.expander("Важность признаков · permutation"):
-        st.dataframe(table(directory / "feature_importance.csv").head(20), hide_index=True, width="stretch")
+        importance = table(directory / "feature_importance.csv").sort_values("log_loss_increase", ascending=False).head(15).copy()
+        importance["Признак"] = importance.feature.map(lambda c: LABELS.get(c.removeprefix("mechanic_"), c))
+        st.plotly_chart(chart(px.bar(importance, x="log_loss_increase", y="Признак", error_x="std", orientation="h",
+            labels={"log_loss_increase": "Рост log loss после перестановки"}, color_discrete_sequence=["#5ed3b6"]), 450), width="stretch")
+        st.dataframe(importance, hide_index=True, width="stretch")
         st.caption("Число механик пересчитывается после перестановки флагов и не оценивается как независимый вход. "
                    "Перестановки могут нарушать наблюдаемое сочетание компонентов; результат не является причинным эффектом.")
     st.download_button("Отчёт исследования", (directory / "research_report_ru.md").read_bytes(),
@@ -127,6 +147,7 @@ catalog = table(DATA / "games.csv")
 tabs = st.tabs(["Концепция", "Данные Steam", "Исследование", "Новый датасет"])
 
 with tabs[0]:
+    active_features = None
     controls, results = st.columns([0.95, 1.7], gap="large")
     with controls:
         st.subheader("Параметры продукта")
@@ -151,7 +172,7 @@ with tabs[0]:
     with results:
         try:
             features = concept_features(genres, mechanics, price, age, int(languages), windows, mac, linux)
-            fingerprint = hashlib.sha256(csv_bytes(features) + chosen_model.encode() + str(MODEL.stat().st_mtime_ns).encode()).hexdigest()
+            fingerprint = hashlib.sha256(csv_bytes(features) + chosen_model.encode() + RETRIEVAL_VERSION.encode() + str(MODEL.stat().st_mtime_ns).encode()).hexdigest()
             if run:
                 st.session_state["concept_result"] = (fingerprint, forecast(features, bundle, chosen_model))
             stored = st.session_state.get("concept_result")
@@ -162,6 +183,7 @@ with tabs[0]:
             if not current:
                 st.info("Параметры изменены; расчёт ожидает обновления.")
             else:
+                active_features = features
                 result = stored[1]
                 support = result["support"]
                 if support["status"] == "abstain":
@@ -175,13 +197,17 @@ with tabs[0]:
                     cols[0].metric("P(владельцев ≥ 20 тыс.)", f"{result['p_at_least_20k']:.1%}")
                     cols[1].metric("P(владельцев ≥ 100 тыс.)", f"{result['p_at_least_100k']:.1%}")
                     cols[2].metric("P(владельцев ≥ 500 тыс.)", f"{result['p_at_least_500k']:.1%}")
-                    bands = pd.DataFrame({"Диапазон": BAND_LABELS, "Вероятность": result["probabilities"]})
-                    fig = px.bar(bands, x="Диапазон", y="Вероятность", color="Диапазон",
-                                 color_discrete_sequence=["#74828b", "#5ed3b6", "#ceab60", "#bf728d"])
+                    prior = bundle["reference"].owners_band.value_counts(normalize=True).reindex(range(4), fill_value=0)
+                    bands = pd.DataFrame({"Диапазон": BAND_LABELS, "Концепция": result["probabilities"], "Частота в train": prior.to_numpy()})
+                    bands = bands.melt(id_vars="Диапазон", var_name="Оценка", value_name="Вероятность")
+                    fig = px.bar(bands, x="Диапазон", y="Вероятность", color="Оценка", barmode="group",
+                                 color_discrete_map={"Концепция": "#5ed3b6", "Частота в train": "#74828b"})
                     fig.update_yaxes(tickformat=".0%", range=[0, 1])
                     st.plotly_chart(chart(fig, 260), width="stretch")
                     st.caption("Оценки владельцев SteamSpy, не фактические продажи и не вероятность прибыли. "
                                "Возраст аналогов не задаёт подтверждённый горизонт будущих продаж.")
+                    st.caption("0–20k — нижняя категория источника с низкой точностью, а не обещание 20 тыс. покупателей. "
+                               "Серые столбцы — исходное распределение обучающей выборки, не прогноз концепции.")
                     if result["playtime"]:
                         hours = result["playtime"]
                         cols = st.columns(2)
@@ -193,6 +219,7 @@ with tabs[0]:
                             st.session_state["comparison"] = (fingerprint, compare_components(features, bundle, chosen_model))
                         comparison = st.session_state.get("comparison")
                         if comparison and comparison[0] == fingerprint:
+                            st.plotly_chart(chart(component_deltas(comparison[1]), 480), width="stretch", key="component_deltas")
                             shown = comparison[1].copy()
                             shown["mechanic"] = shown.mechanic.map(LABELS)
                             shown["change"] = shown.change.map({"add": "Добавить", "remove": "Убрать"})
@@ -212,22 +239,19 @@ with tabs[0]:
                             st.session_state["lime_explanation"] = (fingerprint, explanation, details)
                         lime = st.session_state.get("lime_explanation")
                         if lime and lime[0] == fingerprint:
+                            st.plotly_chart(chart(px.bar(lime[1], x="local_weight", y="feature_condition", orientation="h",
+                                labels={"local_weight": "Локальный вес", "feature_condition": "Условие"},
+                                color_discrete_sequence=["#9db7d5"]), 420), width="stretch", key="lime_chart")
                             st.dataframe(lime[1], hide_index=True, width="stretch")
                             st.caption(f"Диапазон 20k–100k; local R² = {lime[2]['local_surrogate_r2']:.3f}. "
                                        "Локальная аппроксимация, не причинный вклад; возмущения могут быть вне наблюдаемых комбинаций.")
-                st.subheader("Сопоставимые игры · только train")
-                for item in result["analogues"].head(5).to_dict("records"):
-                    image_col, text_col = st.columns([1, 3])
-                    if item.get("header_image"):
-                        image_col.image(item["header_image"], width="stretch")
-                    text_col.markdown(f"**{item['name']}**")
-                    text_col.caption(f"Оценка владельцев: {int(item['owners_lower']):,}–{int(item['owners_upper']):,}")
-                    if item.get("mechanics_json"):
-                        text_col.write(", ".join(LABELS.get(k, k) for k in json.loads(item["mechanics_json"])) or "Нет извлечённых свидетельств механик")
-                    if item.get("source_url"):
-                        text_col.link_button("Steam", item["source_url"], icon=":material/open_in_new:")
         except ValueError as error:
             st.error(str(error))
+    if active_features is not None:
+        try:
+            show_analogues(ROOT, active_features, bundle, catalog, chart)
+        except (ValueError, OSError) as error:
+            st.error(f"Каталог аналогов недоступен: {error}")
 
 with tabs[1]:
     st.subheader("Корпус игровых элементов")
@@ -242,6 +266,21 @@ with tabs[1]:
     genre_filter = st.multiselect("Жанры корпуса", GAME_GENRES, default=GAME_GENRES, key="catalog_genres")
     filtered = catalog[catalog.name.str.contains(query, case=False, regex=False, na=False)]
     filtered = filtered[filtered.genres_json.map(lambda v: bool(set(json.loads(v)) & set(genre_filter)))]
+    with st.expander("Распределение и полнота данных", expanded=True):
+        if len(filtered):
+            left, right = st.columns(2)
+            counts = filtered.owners_band.value_counts().reindex(range(4), fill_value=0)
+            distribution = pd.DataFrame({"Диапазон SteamSpy": BAND_LABELS, "Игр": counts.to_numpy()})
+            left.plotly_chart(chart(px.bar(distribution, x="Диапазон SteamSpy", y="Игр", color_discrete_sequence=["#9db7d5"])),
+                             width="stretch", key="dataset_classes")
+            reviews = review_stats(filtered)
+            reviews["Отзывы"] = pd.cut(reviews.review_count, [-1, 0, 9, 29, 99, 499, float("inf")],
+                                      labels=["0", "1–9", "10–29", "30–99", "100–499", "500+"])
+            counts = reviews["Отзывы"].value_counts(sort=False).rename_axis("Отзывы").reset_index(name="Игр")
+            right.plotly_chart(chart(px.bar(counts, x="Отзывы", y="Игр", color_discrete_sequence=["#dfb966"])),
+                              width="stretch", key="dataset_reviews")
+            st.caption(f"После фильтров: {len(filtered):,} игр. Неизвестные отзывы: {reviews.review_count.isna().sum():,}; "
+                       f"доступное игровое время: {filtered.playtime_median_hours.notna().sum():,}. Данные снимка, не текущая статистика Steam.")
     st.dataframe(filtered[["appid", "name", "price_usd", "genres_json", "mechanics_json", "owners_lower", "owners_upper", "playtime_median_hours"]].head(250),
                  hide_index=True, width="stretch")
     if len(filtered):

@@ -11,6 +11,7 @@ from threadpoolctl import threadpool_limits
 from .dataset import BAND_LABELS, GAME_GENRES, GENRE_COLUMNS, MECHANIC_COLUMNS, feature_columns, validate_dataset
 from .mechanics import KEYS, LABELS
 from .models import probabilities
+from .analogues import find_analogues
 
 
 def concept_features(genres: list[str], mechanics: list[str], price_usd: float = 14.99,
@@ -75,19 +76,7 @@ def assess_support(data: pd.DataFrame, bundle: dict) -> dict:
 
 
 def nearest_analogues(data: pd.DataFrame, reference: pd.DataFrame, limit=8) -> pd.DataFrame:
-    row = data.iloc[0]
-    flags = GENRE_COLUMNS + MECHANIC_COLUMNS
-    a = row[flags].to_numpy(dtype=float)
-    b = reference[flags].to_numpy(dtype=float)
-    union = np.maximum(a, b).sum(axis=1)
-    jaccard = 1 - np.minimum(a, b).sum(axis=1) / np.maximum(union, 1)
-    distance = jaccard + 0.12 * np.abs(reference.log_price.to_numpy() - row.log_price) + 0.08 * np.abs(reference.log_age.to_numpy() - row.log_age)
-    indices = np.argsort(distance, kind="stable")[:limit]
-    columns = [c for c in ["appid", "name", "price_usd", "age_days", "genres_json", "mechanics_json", "owners_lower", "owners_upper",
-                           "playtime_median_hours", "header_image", "source_url"] if c in reference]
-    result = reference.iloc[indices][columns].copy()
-    result["distance"] = distance[indices]
-    return result
+    return find_analogues(data, reference, limit=limit)[0]
 
 
 def forecast(data: pd.DataFrame, bundle: dict, model_name: str | None = None) -> dict:

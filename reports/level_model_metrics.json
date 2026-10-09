@@ -1,0 +1,17 @@
+{
+  "level_random_forest": {
+    "mae": 0.057061633649022725,
+    "rmse": 0.09765082160057252,
+    "r2": 0.9094150622398598
+  },
+  "level_gradient_boosting": {
+    "mae": 0.05696067878339263,
+    "rmse": 0.09720964360330941,
+    "r2": 0.9102317231471949
+  },
+  "metadata": {
+    "hard_level_threshold": 0.625,
+    "levels": 1620,
+    "best_model": "level_gradient_boosting"
+  }
+}

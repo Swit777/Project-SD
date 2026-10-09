@@ -1,0 +1,85 @@
+{
+  "article_date": "2026-10-08",
+  "author": "",
+  "affiliation": "",
+  "experiment_input_sha256": "fd37df7f0e2919ca0f020b60044fa6f9c1c62398dbad9196b121cbd5eca23ab8",
+  "tests_reported": 75,
+  "reproduction": {
+    "market_metrics.csv": true,
+    "playtime_metrics.csv": true,
+    "test_predictions.csv": true,
+    "splits.csv": true,
+    "feature_importance.csv": true,
+    "temporal_backtest.csv": true,
+    "calibration_metrics.csv": true,
+    "reliability_bins.csv": true
+  },
+  "figures": 8,
+  "tables": 7,
+  "annotation": {
+    "status": "not_reviewed",
+    "tasks": 1440,
+    "games": 40,
+    "reviewed_games": 0,
+    "fully_labeled_games": 0,
+    "unclear": 0,
+    "unreviewed": 1440,
+    "reviewed": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "tn": 0,
+    "precision": null,
+    "recall": null,
+    "f1": null,
+    "limitations": [
+      "Metrics concern reviewed Steam claims, not verified gameplay",
+      "Partial or selective annotation cannot establish corpus-wide precision/recall",
+      "One annotator; inter-rater agreement unmeasured"
+    ]
+  },
+  "inputs_sha256": {
+    "docs/game_concept_article_template_ru.md": "2947a21d5c0bffd9f6f7141b756de8f44f4145d174e850fa9d7754b5dffb3d37",
+    "requirements-article.txt": "0af69885d36e251b42a62726fce55fe07eba0b2e6f6b58204d5e382618199ca4",
+    "scripts/build_game_concept_article.py": "91da7eeafaa47d40509f01943456a4786fd0e559a1252c549c7e5e92df65d7ba",
+    "data/processed/game_concept/audit.json": "8584d32be8ab907d637574bc03cb01e7c2b9b0f081ccbc155328d714d599d00b",
+    "data/processed/game_concept/scrape_manifest.json": "c18ddd5c74f3cc28e69131789b7f0bfcf1b653e3aba79b53d0687d941c5d2bf4",
+    "reports/game_concept/run_manifest.json": "d5948a5062e6d82049257c679f9795f0747fe4a435dc423f2ff7a818dec54a3b",
+    "reports/game_concept/models/concept_model.joblib": "065df0d15044eb0e9e24f084c3e1a1ea7f8bba33517d35e7dedac9db8b812313",
+    "reports/game_concept/ui_checks/desktop.png": "fba6b490b5c56679174d059034e5657d96d6961e7642fe13810cfcf17178d0c1",
+    "reports/game_concept/market_metrics.csv": "3e03145d417a8934704103c533e05caa0dcb50dc3a4303d9f64a53739d5c313b",
+    "reports/game_concept/playtime_metrics.csv": "6cdabc486c893e55050dee95bd62edbdac6c798ae33f41e23d6217366cb32565",
+    "reports/game_concept/test_predictions.csv": "7ca5eeb0ee2418387c3bf0d24b831f645a65ba1632682532d0e2c21a978d44ab",
+    "reports/game_concept/splits.csv": "5364bbf3cb4f0a0691dd412c5a73b64ffa9c244dcf67289cfb9748f14a1ebdbe",
+    "reports/game_concept/feature_importance.csv": "44658f04693fa484791f778fb7008b5b0b464f1d0fc8691a2cf437389d756ae5",
+    "reports/game_concept/temporal_backtest.csv": "4a513a51ff951b3a318759fc912e56b669737e3e8e91d0209c170f2ada0138c6",
+    "reports/game_concept/calibration_metrics.csv": "771943a8af907e8fd4ab90cc3474bcb903e888e045ba8bbd272846cd11eb4a22",
+    "reports/game_concept/reliability_bins.csv": "35db4ed6edd686ec9211b7e5506c4c8add0fad5657275fedb40317dd5183929d",
+    "reports/game_concept/annotations/7bf9b2af7cfdfba8/manifest.json": "7b7986d338bf76b6b58caba53cd0473cd81b9170fa8a370eb895b2a3e23e9a35",
+    "reports/game_concept/annotations/7bf9b2af7cfdfba8/tasks.csv": "6ccab54ea01ead342f9ac9a621683b14d075558973173c1583ffa769bf124576",
+    "reports/game_concept/annotations/7bf9b2af7cfdfba8/games.json": "f97368a943acfe442fd62b8a4260479235aa5cea1c6d06827b8cae029f3c818a"
+  },
+  "outputs_sha256": {
+    "article_ru.docx": "7e3f1ffb11578ea3fe46073d9852512f668ccf8188cb9ae069a4e555645432f0",
+    "article_ru.md": "b50580619f8e718e4cda5d2c08c8ac96929d667affec74ecd0186d2bcea224ab",
+    "article_ru.pdf": "6b2b3a52d26d759260452baf2d1fe2cfb5332a85ef3e7b02600e2b1f601c54f9"
+  },
+  "image_sha256": {
+    "01_dataset.png": "6f6153d37e2a90d2046a13132976975938fc3e5a34510661134fe51a783fbc62",
+    "02_pipeline.png": "218761d4f7111737f13eb71e71847f435f4fcfa38d0e19bc0dc3ae80a5f11d72",
+    "03_models.png": "0ff3060f0f134a183d0c922de2e30b324ae5f23a6353d7451a7eec70ddcecd30",
+    "04_hypothesis.png": "672dcc3ee6cbec08c88a0492e499e82d637576214829e1a2ab3a5af49c3f78b1",
+    "05_calibration.png": "7228b856d4221796222a3fcebd6038e862cfef4a43bb4a6b95f6a6e8605aee7b",
+    "06_importance.png": "67b957bb04170db937430a6c49054c4c449061d6b0806639195c684f576229e1",
+    "07_scenarios.png": "497c9ce67ae192cd73d053bc043152f84d5037d11fd3ca2165d622bdc55ace74",
+    "08_application.png": "fba6b490b5c56679174d059034e5657d96d6961e7642fe13810cfcf17178d0c1"
+  },
+  "build_versions": {
+    "python-docx": "1.2.0",
+    "reportlab": "5.0.1",
+    "markdown-it-py": "4.2.0",
+    "Jinja2": "3.1.6",
+    "matplotlib": "3.10.8"
+  },
+  "status": "complete article text; human annotation and prospective validation unfinished"
+}

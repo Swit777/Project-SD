@@ -17,6 +17,8 @@ def main():
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("download")
     sub.add_parser("prepare")
+    sub.add_parser("analogues-catalog")
+    sub.add_parser("analogues-tags")
     scrape = sub.add_parser("scrape")
     scrape.add_argument("--appids", type=int, nargs="+")
     scrape.add_argument("--refresh", action="store_true")
@@ -30,6 +32,9 @@ def main():
     review.add_argument("--input", type=Path, required=True)
     args = parser.parse_args()
     config = load_config(args.config)
+    if args.command == "analogues-tags":
+        from .analogue_catalog import enrich_analogue_tags
+        print(enrich_analogue_tags(ROOT), flush=True)
     if args.command == "audit-create":
         from .annotation import create_annotation_tasks
         print(create_annotation_tasks(ROOT, args.games, config["seed"]), flush=True)
@@ -44,6 +49,9 @@ def main():
         download_snapshot(ROOT / "data/raw/steam_snapshot")
     if args.command in ("prepare", "run-all"):
         prepare_snapshot(ROOT, config)
+    if args.command in ("analogues-catalog", "run-all"):
+        from .analogue_catalog import build_analogue_catalog
+        build_analogue_catalog(ROOT, config)
     if args.command in ("scrape", "run-all"):
         manifest = scrape_games(ROOT, config, getattr(args, "appids", None), getattr(args, "refresh", False))
         print(f"Steam scrape: {manifest['successful']}/{manifest['requested']} successful", flush=True)

@@ -20,6 +20,8 @@ class ConceptAppTests(unittest.TestCase):
         app = AppTest.from_file(str(ROOT / "app.py")).run(timeout=30)
         self.assertEqual(len(app.exception), 0)
         self.assertEqual(len(app.tabs), 4)
+        self.assertEqual(len(app.error), 0)
+        self.assertGreaterEqual(len(app.get("plotly_chart")), 8)
         app.multiselect(key="catalog_genres").set_value([]).run(timeout=30)
         self.assertEqual(len(app.exception), 0)
 
@@ -60,6 +62,45 @@ class ConceptAppTests(unittest.TestCase):
         app.button(key="lime").click().run(timeout=30)
         self.assertEqual(len(app.exception), 0)
         self.assertGreater(len(app.session_state["lime_explanation"][1]), 0)
+
+    def test_analogue_filters_do_not_change_model_probabilities(self):
+        app = AppTest.from_file(str(ROOT / "app.py")).run(timeout=30)
+        before = app.session_state["concept_result"][1]["probabilities"]
+        app.selectbox(key="analogue_reviews_close").set_value(500).run(timeout=30)
+        self.assertEqual(len(app.exception), 0)
+        self.assertEqual(before, app.session_state["concept_result"][1]["probabilities"])
+        self.assertTrue(app.session_state["analogue_results"].review_count.ge(500).all())
+        self.assertTrue(app.session_state["analogue_results"].mechanic_coverage.ge(0.5).all())
+
+    def test_train_analogues_stay_within_training_partition(self):
+        from game_concept.predict import load_bundle
+        app = AppTest.from_file(str(ROOT / "app.py")).run(timeout=30)
+        # Streamlit exposes a segmented control as a button group in AppTest.
+        app.button_group(key="analogue_source").set_value("Только train").run(timeout=30)
+        self.assertEqual(len(app.exception), 0)
+        ids = set(app.session_state["analogue_results"].appid)
+        self.assertTrue(ids.issubset(set(load_bundle(MODEL)["reference"].appid)))
+
+    def test_broader_profile_exposes_popular_references_without_changing_forecast(self):
+        app = AppTest.from_file(str(ROOT / "app.py")).run(timeout=30)
+        before = app.session_state["concept_result"][1]["probabilities"]
+        app.button_group(key="analogue_profile_mode").set_value("Рыночные референсы").run(timeout=30)
+        self.assertEqual(len(app.exception), 0)
+        self.assertEqual(before, app.session_state["concept_result"][1]["probabilities"])
+        rows = app.session_state["analogue_results"]
+        self.assertTrue(rows.review_count.is_monotonic_decreasing)
+        self.assertFalse(app.checkbox(key="analogue_modes_market").value)
+
+    def test_game_anchor_changes_retrieval_not_forecast(self):
+        app = AppTest.from_file(str(ROOT / "app.py")).run(timeout=30)
+        before = app.session_state["concept_result"][1]["probabilities"]
+        app.text_input(key="analogue_anchor_query").set_value("Stardew Valley").run(timeout=30)
+        app.selectbox(key="analogue_anchor").set_value(413150).run(timeout=30)
+        self.assertEqual(len(app.exception), 0)
+        rows = app.session_state["analogue_results"]
+        self.assertTrue(rows.tag_similarity.notna().all())
+        self.assertNotIn(413150, rows.appid.tolist())
+        self.assertEqual(before, app.session_state["concept_result"][1]["probabilities"])
 
 
 if __name__ == "__main__":

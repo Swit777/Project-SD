@@ -1,0 +1,105 @@
+{
+  "desktop": {
+    "chartCount": 3,
+    "documentWidth": 1440,
+    "errors": 0,
+    "headings": [
+      {
+        "scrollWidth": 1220,
+        "text": "Прогноз игровой концепции",
+        "width": 1220
+      },
+      {
+        "scrollWidth": 405,
+        "text": "Параметры продукта",
+        "width": 405
+      },
+      {
+        "scrollWidth": 751,
+        "text": "Оценочный масштаб аудитории",
+        "width": 751
+      },
+      {
+        "scrollWidth": 751,
+        "text": "Сопоставимые игры · только train",
+        "width": 751
+      }
+    ],
+    "images": [
+      {
+        "loaded": true
+      },
+      {
+        "loaded": true
+      },
+      {
+        "loaded": true
+      },
+      {
+        "loaded": true
+      },
+      {
+        "loaded": true
+      }
+    ],
+    "viewport": [
+      1440,
+      1100
+    ]
+  },
+  "wide_desktop": {
+    "chartCount": 3,
+    "documentWidth": 1920,
+    "errors": 0,
+    "headings": [
+      {
+        "scrollWidth": 1220,
+        "text": "Прогноз игровой концепции",
+        "width": 1220
+      },
+      {
+        "scrollWidth": 405,
+        "text": "Параметры продукта",
+        "width": 405
+      },
+      {
+        "scrollWidth": 751,
+        "text": "Оценочный масштаб аудитории",
+        "width": 751
+      },
+      {
+        "scrollWidth": 751,
+        "text": "Сопоставимые игры · только train",
+        "width": 751
+      }
+    ],
+    "images": [
+      {
+        "loaded": true
+      },
+      {
+        "loaded": true
+      },
+      {
+        "loaded": true
+      },
+      {
+        "loaded": true
+      },
+      {
+        "loaded": true
+      }
+    ],
+    "viewport": [
+      1920,
+      1080
+    ]
+  },
+  "annotation_and_calibration": {
+    "errors": 0,
+    "screenshots": [
+      "annotation_desktop.png",
+      "calibration_desktop.png"
+    ]
+  }
+}

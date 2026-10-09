@@ -1,0 +1,36 @@
+{
+  "support": {
+    "status": "supported",
+    "reasons": [],
+    "rare_mechanics": [],
+    "rare_pairs": [],
+    "rare_genre_mechanics": [],
+    "density_limit": 8,
+    "selected_mechanics": 2,
+    "definition": "Training support is not a measurement of design quality"
+  },
+  "model": "hgb_additive",
+  "probabilities": [
+    0.8122479571658882,
+    0.12448892692184228,
+    0.027478889884655376,
+    0.03578422602761428
+  ],
+  "playtime": {
+    "median_hours_estimate": 4.234893690596758,
+    "low_hours": 0.23974565247273957,
+    "high_hours": 21.10462436161059,
+    "meaning": "Available SteamSpy median-hours estimate for a comparable game; not owner retention"
+  },
+  "is_actual_sales_forecast": false,
+  "is_retention_forecast": false,
+  "band_labels": [
+    "0-20k",
+    "20k-100k",
+    "100k-500k",
+    "500k+"
+  ],
+  "p_at_least_20k": 0.18775204283411193,
+  "p_at_least_100k": 0.06326311591226966,
+  "p_at_least_500k": 0.03578422602761428
+}

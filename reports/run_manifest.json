@@ -1,0 +1,73 @@
+{
+  "generated_at_utc": "2026-09-15T15:15:06.372649+00:00",
+  "config": {
+    "generation": {
+      "seed_start": 1,
+      "n_seeds": 90,
+      "sizes": [
+        8,
+        10,
+        12
+      ],
+      "obstacle_densities": [
+        0.08,
+        0.16,
+        0.24,
+        0.32,
+        0.4,
+        0.48
+      ],
+      "agents": [
+        "random",
+        "greedy",
+        "astar",
+        "q_learning"
+      ],
+      "random_episodes": 8,
+      "max_steps_factor": 3.8,
+      "q_learning_episodes": 180,
+      "q_learning_eval_episodes": 5
+    },
+    "training": {
+      "test_size": 0.25,
+      "random_state": 42,
+      "cv_folds": 3
+    }
+  },
+  "data_path": "C:\\Users\\ден\\Desktop\\Proiect\\data\\processed\\levels_results.csv",
+  "data_sha256": "ac6209762f35d674043690112ca86f4aee68ea56d106e074ef2490c806adc296",
+  "environment": {
+    "python": "3.14.2",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.8.0",
+    "matplotlib": "3.10.8"
+  },
+  "artifacts": [
+    "ablation_study.csv",
+    "article_draft_ru.md",
+    "best_model.pkl",
+    "calibration_curve.csv",
+    "cross_validation_metrics.csv",
+    "cross_validation_summary.csv",
+    "feature_importance.csv",
+    "gmm_cluster_summary.csv",
+    "level_difficulty_predictions.csv",
+    "level_feature_importance.csv",
+    "level_model_metrics.json",
+    "metrics.json",
+    "plots/ablation_study.png",
+    "plots/calibration_curve.png",
+    "plots/cross_validation.png",
+    "plots/difficulty_by_density.png",
+    "plots/level_examples.png",
+    "plots/level_predicted_vs_actual.png",
+    "plots/model_comparison.png",
+    "plots/uncertainty_by_agent.png",
+    "predictions.csv",
+    "research_summary.md",
+    "run_manifest.json",
+    "sample_new_levels_predictions.csv"
+  ]
+}
